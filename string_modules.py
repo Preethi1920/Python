@@ -30,20 +30,27 @@ def cap1(x):
     return s
 
 def title1(x):
-    a=0;b=0
+    a=0;b=""
     l1=[]
     l=x.split()
     print(l)
     for y in l:
         s=""
         for i in range(0,len(y)):
-            if ord(y[i])>97 and ord(y[i])<123:
+            if (ord(y[i])>97 and ord(y[i])<123) or (ord(y[i])>64 and ord(y[i])<90):
                 print("Alphabet found at : ",i)
-                a=i
-                b=chr(ord(y[i])-32)
-                break        
+                
+                if (ord(y[i])>97 and ord(y[i])<123):
+                    a=i
+                    b=chr(ord(y[i])-32)
+                    print(b)
+                    break   
+                else:
+                    a=i
+                    b=y[i]
+                    break                    
             else:
-                 pass        
+                pass
         
         for i in range(0,len(y)):
             if i==a:
@@ -54,8 +61,8 @@ def title1(x):
                 s+=y[i]
                 
         l1.append(s)
-        print(l1)            
-            
+        print(l1)  
+        
     return (" ".join(l1))
     
 def isalpha1(x):
